@@ -1,0 +1,136 @@
+
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:#0f0f1f;
+  color:#ddd;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.5rem;
+}
+canvas {
+  width:90vmin;
+  height:90vmin;
+  max-width:800px;
+  max-height:800px;
+  border:2px solid #444;
+  border-radius:12px;
+  background:#000;
+}
+.controls {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+  width:100%;
+  max-width:1000px;
+  padding:4px;
+}
+.control {
+  background:#1f2a40;
+  padding:10px 14px;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+label { font-size:0.7rem; display:block; margin-bottom:4px; }
+input[type=range] { width:100%; }
+select, input[type=text] {
+  background:#0f1f3f;
+  color:#eee;
+  border:1px solid #334;
+  border-radius:4px;
+  padding:4px 6px;
+  width:100%;
+}
+button {
+  background:#5c7cff;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  color:white;
+  font-weight:600;
+  font-size:0.85rem;
+}
+.rec-btn { background:#d9480f; }
+.rec-active { box-shadow:0 0 12px 4px rgba(255,100,100,0.7); }
+small { display:block; margin-top:2px; font-size:0.65rem; color:#999; }
+.status {
+  margin-top:4px;
+  font-size:0.75rem;
+  text-align:center;
+  width:100%;
+  max-width:1000px;
+}
+.beat-indicator {
+  display:inline-block;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  margin-right:6px;
+  vertical-align:middle;
+  background: #222;
+  box-shadow:0 0 8px 2px rgba(255,255,255,0.1);
+}
+.band-display {
+  display:flex;
+  gap:12px;
+  flex-wrap: wrap;
+  justify-content:center;
+  margin-top:4px;
+  width:100%;
+  max-width:1000px;
+}
+.band {
+  background:#202840;
+  padding:6px 10px;
+  border-radius:6px;
+  font-size:0.7rem;
+  flex:1;
+  min-width:100px;
+  text-align:center;
+}
+.preset-row {
+  display:flex;
+  gap:6px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.pill {
+  background:#334575;
+  padding:2px 8px;
+  border-radius:999px;
+  display:inline-flex;
+  gap:4px;
+  align-items:center;
+  font-size:0.65rem;
+}
+.share {
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.corner-note {
+  font-size:0.55rem;
+  color:#888;
+  margin-top:8px;
+}
+.record-info {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.dot {
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#f33;
+  margin-right:4px;
+  box-shadow:0 0 8px rgba(255,0,0,0.8);
+  display:inline-block;
+  visibility:hidden;
+}

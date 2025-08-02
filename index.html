@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reactive Shader Kaleidoscope • Separated</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 style="margin:4px 0">Reactive Shader Kaleidoscope</h1>
+  <canvas id="glcanvas" aria-label="Kaleidoscope visualization"></canvas>
+
+  <div class="controls">
+    <div class="control">
+      <div><strong>Audio</strong></div>
+      <button id="loadBtn">Load MP3 / WAV</button>
+      <small>Drag & drop audio anywhere</small>
+    </div>
+
+    <div class="control">
+      <div><strong>Built-in Preset</strong></div>
+      <div class="preset-row">
+        <select id="presetSelect">
+          <option value="">-- choose --</option>
+        </select>
+        <button id="applyPreset">Apply</button>
+      </div>
+      <small>Quick visual moods</small>
+    </div>
+
+    <div class="control">
+      <div><strong>Custom Preset</strong></div>
+      <div class="preset-row">
+        <input id="customName" type="text" placeholder="Name"/>
+        <button id="saveCustom">Save</button>
+      </div>
+      <div id="customList" style="margin-top:4px;"></div>
+      <small>Persistent in browser</small>
+    </div>
+
+    <div class="control">
+      <div><strong>Symmetry</strong></div>
+      <label for="slices">Slices: <span id="slicesVal">8</span></label>
+      <input id="slices" type="range" min="3" max="16" value="8" />
+    </div>
+
+    <div class="control">
+      <div><strong>Warp</strong></div>
+      <label for="warp">Strength: <span id="warpVal">30</span></label>
+      <input id="warp" type="range" min="0" max="100" value="30" />
+    </div>
+
+    <div class="control">
+      <div><strong>Feedback</strong></div>
+      <label for="feedback">Amount: <span id="feedbackVal">40</span></label>
+      <input id="feedback" type="range" min="0" max="100" value="40" />
+    </div>
+
+    <div class="control">
+      <div><strong>Share</strong></div>
+      <div class="share">
+        <button id="copyLink">Copy Link</button>
+        <small id="linkStatus">Ready</small>
+      </div>
+      <small>Share current settings (audio not included)</small>
+    </div>
+
+    <div class="control">
+      <div><strong>Playback / Record</strong></div>
+      <div class="preset-row" style="gap:8px;">
+        <button id="playPause">Play / Pause</button>
+        <button id="recordBtn" class="rec-btn">Record</button>
+      </div>
+      <div class="record-info">
+        <span class="dot" id="recDot"></span>
+        <div><span id="recStatus">Idle</span></div>
+      </div>
+      <small>Capture canvas+audio (WebM)</small>
+    </div>
+  </div>
+
+  <div class="band-display">
+    <div class="band"><div class="label">Bass</div><div><span id="bassVal">--</span></div></div>
+    <div class="band"><div class="label">Mid</div><div><span id="midVal">--</span></div></div>
+    <div class="band"><div class="label">Treble</div><div><span id="trebleVal">--</span></div></div>
+    <div class="band"><div class="label">Spectral Centroid</div><div><span id="centroid">--</span></div></div>
+  </div>
+
+  <div class="status">
+    <div>
+      Time: <span id="time">0.00</span>s &middot;
+      <span class="beat-indicator" id="beatDot"></span>
+      Beat: <span id="beatText">–</span> &middot;
+      Tempo est: <span id="tempo">--</span> BPM
+    </div>
+    <div class="corner-note">
+      Presets and parameters are encoded in the URL. Copy and share the link; recipients load their own audio and get the same visual configuration.
+    </div>
+  </div>
+  <input type="file" id="audioFile" accept="audio/*" style="display:none" />
+  <script type="module" src="main.js"></script>
+</body>
+</html>
