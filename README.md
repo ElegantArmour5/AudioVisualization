@@ -1,4 +1,4 @@
-# Shader Kaleidoscope Web App (Separated)
+# Shader Kaleidoscope Web App
 
 ### Structure
 - `index.html` — main entry, references external CSS and JS.
